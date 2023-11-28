@@ -8,7 +8,7 @@ from random import randint
 class DrawCircle(QMainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadui('untitled.ui', self)
+        uic.loadUi('untitled.ui', self)
 
         self.do_paint = False
         self.pushButton.clicked.connect(self.paint)
@@ -24,9 +24,10 @@ class DrawCircle(QMainWindow):
             self.draw_circle(qp)
             qp.end()
 
+
     def draw_circle(self, qp):
         color = QColor('yellow')
-        x, y = randint(10, 590)
+        x, y = randint(10, 590), randint(10, 590)
         d = randint(2, min(x, y, 800 - x, 600 - y) * 2)
         qp.setBrush(color)
         qp.drawEllipse(x - d // 2, y - d // 2, d, d)
